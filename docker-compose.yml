@@ -8,17 +8,17 @@
 
 version: "3"
 services:
-  phantun:
+  docker-app-phantun:
     # ================= 镜像配置 =================
     # 使用自定义名称，防止与远程混淆
-    image: phantun-custom:latest
+    image: docker-app-phantun:latest
 
     # 启用本地构建
     build:
       context: .
       dockerfile: Dockerfile
 
-    container_name: phantun-tcp-tunnel
+    container_name: docker-app-phantun
     hostname: phantun
 
     # --------------------------------------------------------------------------
@@ -64,6 +64,6 @@ services:
 # ------------------------------------------------------------------------------
 # Usage Instructions:
 # 1. Start: docker-compose up -d
-# 2. Enter Container: docker exec -it phantun sh
-# 3. View Logs: docker logs -f phantun
+# 2. Enter Container: docker exec -it docker-app-phantun sh
+# 3. View Logs: docker logs -f docker-app-phantun
 # ------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 /* ========================================
    PHANTUN MANAGER - INDUSTRIAL DARK THEME
    ========================================
-   
+
    TABLE OF CONTENTS:
    1. Design System (Variables)
    2. Base Styles
@@ -11,11 +11,11 @@
    6. Accessibility Features
    7. Responsive Design
    8. Print Styles
-   
+
    ======================================== */
 
 /* ===== 1. DESIGN SYSTEM ===== */
-/* Industrial Dark Theme for Phantun Manager */
+/* Industrial Dark Theme for docker-app-phantun */
 :root {
     /* ===== COLORS ===== */
     /* Backgrounds */

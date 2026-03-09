@@ -1,65 +1,33 @@
-# Phantun Docker Manager
+# docker-app-phantun
 
-A lightweight, efficient, and user-friendly Docker container for managing [Phantun](https://github.com/dndx/phantun) UDP-to-TCP obfuscation services.
+> 规范名称：`docker-app-phantun`
+> 底层核心项目：`phantun`
+> 对应 LuCI 插件：`luci-app-phantun`
 
-## ✨ Features
+`docker-app-phantun` 是一个面向 `phantun` 的 Docker 化管理端项目，用于统一管理服务端 / 客户端实例、持久化配置，并与 OpenWrt 侧 `luci-app-phantun` 在命名与职责上保持一致。
 
-*   **Lightweight**: Built with **Go (Golang)** and Alpine Linux. Minimal resource usage (< 30MB image).
-*   **Web UI**: Premium dark-themed interface for managing instances (Client & Server modes).
-*   **Zero Dependencies**: Single binary architecture. No Python/Pip or Node.js required at runtime.
-*   **Hot Reload**: Restart services instantly from the dashboard.
-*   **Diagnostics**: View active IPTables rules directly in the UI.
+## 特性
 
-## 🚀 Quick Start
+- 基于 Go 的轻量化实现
+- 支持 Client / Server 双模式管理
+- 提供 Web UI、日志广播与运行状态查看
+- 支持 TUN / iptables 相关运行环境
+- 与 `openwrt-reyan_new/luci-app-phantun` 逻辑对齐
 
-### Prerequisites
-*   Docker & Docker Compose
-*   Linux Kernel with TUN/TAP support (Standard on most VPS/Desktops)
-*   **Host Networking** is enabled by default for optimal performance and IPTables management.
+## 快速开始
 
-### Installation
-
-1.  **Clone or Download** this repository.
-2.  **Run**:
-    ```bash
-    docker-compose up -d --build
-    ```
-3.  **Access the Dashboard**:
-    open `http://localhost:8080` (or your server IP).
-
-## 🛠 Configuration
-
-Configuration is stored in `config/config.json`. The web interface is the recommended way to modify it.
-
-### Docker Compose
-```yaml
-services:
-  phantun:
-    network_mode: "host"       # Required for iptables/tun
-    cap_add:
-      - NET_ADMIN              # Required for TUN creation
-    devices:
-      - /dev/net/tun           # Phantun needs this
-    volumes:
-      - ./config:/etc/phantun  # Persist config
+```bash
+git clone https://github.com/iHub-2020-Org/docker-app-phantun.git
+cd docker-app-phantun
+docker compose up -d --build
 ```
 
-## 🖥 Backend Architecture
+访问：`http://localhost:8080` 或服务器 IP 对应端口。
 
-*   **Language**: Go 1.22
-*   **Framework**: Standard Library (net/http)
-*   **Assets**: Embedded (HTML/CSS/JS compiled into binary)
-*   **Process Management**: Native `os/exec`
+## 命名说明
 
-## 🎨 Frontend
+本项目历史上曾使用 `phantun-docker` 作为仓库名称。现统一规范为：
 
-*   **Design**: Custom Premium Dark Theme (CSS Variables, Responsive)
-*   **Logic**: Vanilla JS (ES6+) calling REST API
-*   **Speed**: Zero-latency loading (Embedded assets)
-
-## ⚠️ Requirements
-*   The container must run with `--cap-add=NET_ADMIN` and `--device /dev/net/tun`.
-*   If running on a router (OpenWrt Docker), ensure `kmod-tun` is installed.
-
----
-*Based on `openwrt-reyan_new/luci-app-phantun` logic but rewritten for Cloud Native efficiency.*
+- Docker 项目：`docker-app-phantun`
+- LuCI 插件：`luci-app-phantun`
+- 核心后端：`phantun`

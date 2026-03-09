@@ -12,9 +12,9 @@ import (
 	"encoding/hex"
 	"io"
 	"os"
-	"phantun-docker/internal/config"
-	"phantun-docker/internal/iptables"
-	"phantun-docker/internal/system"
+	"docker-app-phantun/internal/config"
+	"docker-app-phantun/internal/iptables"
+	"docker-app-phantun/internal/system"
 )
 
 // Process represents a running Phantun instance

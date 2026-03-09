@@ -111,7 +111,7 @@ function updateLanguage(lang) {
 }
 
 // ===== APPLICATION =====
-// Phantun Manager Application
+// docker-app-phantun Application
 const app = {
     currentMode: null, // 'server' or 'client'
     editingIndex: null,
@@ -485,10 +485,10 @@ const app = {
             this.showSuccess(`Instance ${mode === 'server' ? 'server' : 'client'} #${index + 1} toggled.`);
 
             // Optionally auto-apply? For now, we just save config as user might want to toggle multiple.
-            // But user expectation "click checkbox" usually implies "it works". 
-            // Given the requirement "Live Checkboxes", we should probably apply. 
+            // But user expectation "click checkbox" usually implies "it works".
+            // Given the requirement "Live Checkboxes", we should probably apply.
             // However, applying restarts EVERYTHING. Let's just save for now, or trigger apply if critical.
-            // Let's stick to Save Only to avoid massive disruptions on every click, 
+            // Let's stick to Save Only to avoid massive disruptions on every click,
             // unless user clicks "Save & Apply". (Or we can make it auto-restart).
             // Re-reading expectation: "active/cancel". Let's auto-restart to be "Live".
 
@@ -1004,7 +1004,7 @@ const app = {
                     <text x="${x2}" y="${y}" class="node-icon" style="font-size:24px">👻</text>
                     <text x="${x2}" y="${y + 35}" class="node-text" style="fill:${color}">Phantun ${modeLabel}</text>
                     <text x="${x2}" y="${y + 55}" class="node-subtext" style="font-size:12px; font-weight:bold; fill: #e2e8f0;">${this.escapeHtml(addrTun)}</text>
-                    
+
                     <!-- === NODE 3: TCP Tunnel (Stream) === -->
                     <circle cx="${x3}" cy="${y}" r="22" class="node-circle internet"></circle>
                     <text x="${x3}" y="${y}" class="node-icon" style="font-size:20px">🔗</text>

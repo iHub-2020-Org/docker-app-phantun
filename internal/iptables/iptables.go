@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
-	"phantun-docker/internal/config"
+	"docker-app-phantun/internal/config"
 	"strings"
 )
 

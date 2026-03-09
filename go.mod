@@ -1,4 +1,4 @@
-module phantun-docker
+module docker-app-phantun
 
 go 1.22
 

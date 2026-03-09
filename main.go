@@ -19,10 +19,10 @@ import (
 	"strings"
 	"time"
 
-	"phantun-docker/internal/api"
-	"phantun-docker/internal/config"
-	"phantun-docker/internal/iptables"
-	"phantun-docker/internal/process"
+	"docker-app-phantun/internal/api"
+	"docker-app-phantun/internal/config"
+	"docker-app-phantun/internal/iptables"
+	"docker-app-phantun/internal/process"
 )
 
 var (
@@ -124,12 +124,12 @@ func main() {
 
 	go func() {
 		if useTLS {
-			log.Printf("Phantun Manager listening on :%d (HTTPS)", *port)
+			log.Printf("docker-app-phantun listening on :%d (HTTPS)", *port)
 			if err := server.ListenAndServeTLS(certFile, keyFile); err != http.ErrServerClosed {
 				log.Fatalf("HTTPS server error: %v", err)
 			}
 		} else {
-			log.Printf("Phantun Manager listening on :%d (HTTP)", *port)
+			log.Printf("docker-app-phantun listening on :%d (HTTP)", *port)
 			if err := server.ListenAndServe(); err != http.ErrServerClosed {
 				log.Fatalf("HTTP server error: %v", err)
 			}
